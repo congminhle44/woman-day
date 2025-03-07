@@ -13,6 +13,7 @@
             background: #ffe6f2;
             margin: 0;
             font-family: Arial, sans-serif;
+            flex-direction: column;
         }
 
         .card-container {
@@ -98,6 +99,32 @@
             font-size: 18px;
             line-height: 1.5;
         }
+
+        /* Thêm đoạn văn "Bấm vào để mở thiệp nhé" */
+        .click-to-open {
+            font-size: 18px;
+            color: #ff1a75;
+            margin-top: 20px;
+            font-weight: bold;
+            animation: blink 2s infinite;
+        }
+
+        .click-to-open.hide {
+            display: none;
+        }
+
+        /* Animation nhấp nháy */
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.2;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -115,11 +142,16 @@
             </div>
         </div>
     </div>
+    <div class="click-to-open">
+        Bấm vào để mở thiệp nhé
+    </div>
 
     <script>
         function toggleCard() {
             const card = document.querySelector('.heart-card');
+            const clickToOpen = document.querySelector('.click-to-open');
             card.classList.toggle('open');
+            clickToOpen.classList.toggle('hide')
         }
     </script>
 </body>
