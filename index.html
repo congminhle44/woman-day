@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Chúc Mừng 8/3</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #ffe6f2;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .card-container {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            perspective: 1000px;
+        }
+
+        .heart-card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotate(-90deg);
+            transition: transform 1s;
+            cursor: pointer;
+        }
+
+        .heart-card.open {
+            transform: rotateY(180deg);
+        }
+
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .front {
+            background: #ffeef5;
+            border: 2px solid #ff4d94;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .heart {
+            width: 150px;
+            height: 150px;
+            background: #ff1a75;
+            position: relative;
+            transform: rotate(-45deg);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 150px;
+            height: 150px;
+            background: #ff1a75;
+            position: absolute;
+            border-radius: 75px;
+        }
+
+        .heart::before {
+            left: 75px;
+        }
+
+        .heart::after {
+            top: 75px;
+        }
+
+        .back {
+            background: #fff;
+            border: 2px solid #ff4d94;
+            transform: rotateY(180deg);
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .message {
+            color: #ff1a75;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="heart-card" onclick="toggleCard()">
+            <div class="front">
+                <div class="heart"></div>
+            </div>
+            <div class="back">
+                <div class="message">
+                    <h2>Chúc Mừng 8/3</h2>
+                    <p>Chúc em một ngày 8/3 thật hạnh phúc, tràn đầy yêu thương và những điều tuyệt vời nhất! 🌸</p>
+                    <p>Hãy luôn rạng rỡ như những đóa hoa tươi đẹp nhất nhéee!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleCard() {
+            const card = document.querySelector('.heart-card');
+            card.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
